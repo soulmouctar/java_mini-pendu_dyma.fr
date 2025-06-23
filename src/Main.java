@@ -17,6 +17,22 @@ public class Main {
             System.out.println(game);
             System.out.print("Entrez une lettre : ");
             final var letter = scanner.nextLine().charAt(0);
+
+            game.guessLetter(letter);
+
+            if (game.isLost()) {
+                System.out.println("Vous avez perdu !");
+                System.out.println(game);
+                //System.out.println("Le mot était : " + wordToGuess);
+                break;
+            }
+
+            if (game.isWon()) {
+                System.out.println(game);
+                System.out.println("Félicitations, vous avez gagné !");
+                break;
+            }
         }
+
     }
 }
