@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         final var scanner = new Scanner(System.in);
         final var random = new Random();
-        final var words = "abuser crotte continetal alpha yaya mamadou école ingenieur".split(" ");
+        final var words = "abuser crotte continental alpha yaya mamadou école ingenieur".split(" ");
         final var wordToGuess = words[random.nextInt(words.length)];
         final var game = new GuessGame(wordToGuess, 10);
 
@@ -15,8 +15,7 @@ public class Main {
 
         while (true) {
             System.out.println(game);
-            System.out.print("Entrez une lettre : ");
-            final var letter = scanner.nextLine().charAt(0);
+            final var letter = scanLetter();
 
             game.guessLetter(letter);
 
@@ -34,5 +33,18 @@ public class Main {
             }
         }
 
+    }
+
+    private static char scanLetter() {
+        final var scanner = new Scanner(System.in);
+        Character letter = null;
+        do{
+            System.out.println("Entrez une lettre : ");
+            var input = scanner.nextLine();
+            if (input.length() == 1) {
+                letter = input.charAt(0);
+            }
+        } while (letter == null);
+        return letter;
     }
 }
